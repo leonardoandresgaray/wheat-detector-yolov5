@@ -1,0 +1,21 @@
+{
+  "categories": [
+    {
+      "id": 0,
+      "name": "bad"
+    },
+    {
+      "id": 1,
+      "name": "cut"
+    },
+    {
+      "id": 2,
+      "name": "good"
+    }
+  ],
+  "info": {
+    "year": 2023,
+    "version": "1.0",
+    "contributor": "Label Studio"
+  }
+}
