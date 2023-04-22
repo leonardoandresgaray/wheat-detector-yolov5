@@ -15,6 +15,8 @@ test:  # test images (optional)
 
 # Classes
 names:
-  0: bad
-  1: cut
-  2: good
+  0: bueno
+  1: danado
+  2: impureza
+  3: partido
+  4: quemado
