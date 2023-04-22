@@ -2,15 +2,23 @@
   "categories": [
     {
       "id": 0,
-      "name": "bad"
+      "name": "bueno"
     },
     {
       "id": 1,
-      "name": "cut"
+      "name": "danado"
     },
     {
       "id": 2,
-      "name": "good"
+      "name": "impureza"
+    },
+    {
+      "id": 3,
+      "name": "partido"
+    },
+    {
+      "id": 4,
+      "name": "quemado"
     }
   ],
   "info": {

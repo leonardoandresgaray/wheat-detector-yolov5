@@ -1,3 +1,5 @@
-bad
-cut
-good
+bueno
+dañado
+impureza
+partido
+quemado
