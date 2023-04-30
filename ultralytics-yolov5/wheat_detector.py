@@ -120,5 +120,5 @@ def getTasksFromProject():
              
 
 if __name__ == '__main__':
-    #run()
-    getTasksFromProject()
+    run()
+    #getTasksFromProject()
