@@ -206,7 +206,8 @@ INSTALLED_APPS = [
     'ml',
     'webhooks',
     'labels_manager',
-    'photo'
+    'photo_upload',
+    'photo_detect'
 ]
 
 MIDDLEWARE = [

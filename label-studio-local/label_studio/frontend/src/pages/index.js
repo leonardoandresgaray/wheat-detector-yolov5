@@ -1,9 +1,11 @@
 import { ProjectsPage } from './Projects/Projects';
 import { OrganizationPage } from './Organization';
-import { PhotoPage } from './PhotoPage';
+import { PhotoUploadPage } from './PhotoUploadPage';
+import { PhotoDetectPage } from './PhotoDetectPage';
 
 export const Pages = [
   ProjectsPage,
   OrganizationPage,
-  PhotoPage
+  PhotoUploadPage,
+  PhotoDetectPage
 ];

@@ -1,6 +1,6 @@
 import { createContext, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { StaticContent } from '../../app/StaticContent/StaticContent';
-import { IconBook, IconFolder, IconPersonInCircle, IconPin, IconTerminal, LsDoor, LsGitHub, LsSettings, LsSlack } from '../../assets/icons';
+import { IconScan, IconPhotoUp, IconBook, IconFolder, IconPersonInCircle, IconPin, IconTerminal, LsDoor, LsGitHub, LsSettings, LsSlack } from '../../assets/icons';
 import { useConfig } from '../../providers/ConfigProvider';
 import { useContextComponent, useFixedLocation } from '../../providers/RoutesProvider';
 import { cn } from '../../utils/bem';
@@ -200,9 +200,16 @@ export const Menubar = ({
                   exact
                 />
                 <Menu.Item
-                  label="Photo"
-                  to="/photo"
-                  icon={<IconPersonInCircle/>}
+                  label="Photo Upload"
+                  to="/photo_upload"
+                  icon={<IconPhotoUp/>}
+                  data-external
+                  exact
+                />
+                <Menu.Item
+                  label="Photo Detect"
+                  to="/photo_detect"
+                  icon={<IconScan/>}
                   data-external
                   exact
                 />

@@ -55,7 +55,8 @@ urlpatterns = [
 
     re_path(r'^', include('organizations.urls')),
     re_path(r'^', include('projects.urls')),
-    re_path(r'^', include('photo.urls')),
+    re_path(r'^', include('photo_upload.urls')),
+    re_path(r'^', include('photo_detect.urls')),
     re_path(r'^', include('data_import.urls')),
     re_path(r'^', include('data_manager.urls')),
     re_path(r'^', include('data_export.urls')),
