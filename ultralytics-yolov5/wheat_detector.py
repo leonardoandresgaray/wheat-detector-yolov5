@@ -19,14 +19,14 @@ categories = {
 ls = Client(url=LABEL_STUDIO_URL, api_key=API_KEY)
 ls.check_connection()
 
-def run():
+def run(path):
     labels = []
     results = detect.run(
         imgsz=(1280,1280),
         conf_thres=0.5,
         hide_labels=True, 
-        weights="wheat_detector/weights/best.pt",
-        source="../images/1280/IMG_20230422_105651.jpg",
+        weights="../wheat_detector/weights/best.pt",
+        source=path,
         save_txt=True,
         nosave=True)
     
@@ -57,13 +57,9 @@ def run():
 
         labels.append(json)
     
-    connect_label_studio(labels)
-
-def connect_label_studio(labels):
-    projects = ls.get_projects()
     project = ls.get_project(4)
 
-    task = project.import_tasks(os.path.join('C:\\Users\\leona\\OneDrive\\Escritorio\\Posgrado\\wheat-detector-yolov5\\images\\1280', 'IMG_20230422_105651.jpg'))
+    task = project.import_tasks(path)
     project.create_annotation(
         task[0], 
         result = labels)
@@ -118,7 +114,9 @@ def getTasksFromProject():
             
             project.create_annotation(task["id"], result = labels)
              
+def create_task(path):
+    run(path)
 
-if __name__ == '__main__':
-    run()
+#if __name__ == '__main__':
+    #run()
     #getTasksFromProject()

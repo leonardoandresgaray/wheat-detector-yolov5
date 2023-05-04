@@ -1,12 +1,9 @@
 import React from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { LsPlus } from "../../assets/icons";
-import { Button } from "../../components";
-import { cn } from '../../utils/bem';
 
 const PhotoForm = ({ file, handleFileChange, handleUploadClick, error}) => (
   <div className="field field--wide">
-    <input type="file" onChange={handleFileChange} />
+    <input name="photo" type="file" onChange={handleFileChange} />
 
     <div>{file && `${file.name} - ${file.type}`}</div>
 
@@ -31,14 +28,9 @@ export const Photo = () => {
     }
 
     // 👇 Uploading the file using the fetch API to the server
-    fetch('https://httpbin.org/post', {
+    fetch('http://localhost:5000/api/photo/upload', {
       method: 'POST',
       body: file,
-      // 👇 Set headers manually for single file upload
-      headers: {
-        'content-type': file.type,
-        'content-length': `${file.size}`, // 👈 Headers need to be a string
-      },
     })
       .then((res) => res.json())
       .then((data) => console.log(data))
