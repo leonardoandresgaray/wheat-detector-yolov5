@@ -1,15 +1,28 @@
 import React from 'react';
 
-const PhotoDetectForm = ({ file, handleFileChange, handleUploadClick, image, error}) => (
+const PhotoDetectForm = ({ file, handleFileChange, handleUploadClick, image, report, error}) => (
   <div className="field field--wide">
     <input name="photo" type="file" onChange={handleFileChange} />
 
-    <div>{file && `${file.name} - ${file.type}`}</div>
+    <hr />
 
     <button onClick={handleUploadClick}>Upload</button>
-
     <div>
-      <img src={image} />
+    {
+      Object.keys(report).map((key, index) => {
+        return (
+          <div key={index}>
+            <h3>
+              {key}: {report[key]}
+            </h3>
+            <hr />
+          </div>
+        );
+      })
+    }
+    </div>
+    <div>
+      <img src={image} width="100%"/>
     </div>
   </div>
 );
@@ -18,6 +31,7 @@ export const PhotoDetect = () => {
   const [file, setFile] = React.useState("");
   const [error, setError] = React.useState();
   const [image, setImage] = React.useState("");
+  const [report, setReport] = React.useState([]);
   
   const handleFileChange = (e) => {
     if (e.target.files) {
@@ -38,7 +52,7 @@ export const PhotoDetect = () => {
     })
       .then((res) => {
         res.json().then(detection => {
-          console.log(detection);
+          setReport(detection.report);
           setImage('http://localhost:5000/image?path=' + detection.path);
         });
       })
@@ -53,6 +67,7 @@ export const PhotoDetect = () => {
         handleFileChange={handleFileChange}
         handleUploadClick={handleUploadClick}
         image={image}
+        report={report}
       />
   );
 };

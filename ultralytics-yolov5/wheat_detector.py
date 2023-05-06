@@ -3,12 +3,12 @@ from label_studio_sdk import Client
 
 # Define the URL where Label Studio is accessible and the API key for your user account
 LABEL_STUDIO_URL = 'http://localhost:8080'
-API_KEY = 'dba3aa2a85021ed9982b9e14ca3e55605da66a3b'
+API_KEY = '631e560fab681593d71905198a1f284b94c8a40d'
 PROJECT = 8
 
 CATEGORIES = {
     "0": "bueno",
-    "1": "danado",
+    "1": "da\u00f1ado",
     "2": "impureza",
     "3": "partido",
     "4": "quemado"
@@ -19,7 +19,12 @@ ls = Client(url=LABEL_STUDIO_URL, api_key=API_KEY)
 ls.check_connection()
 
 def detect_file_path(path):
+    report = {}
     labels = []
+
+    for key in CATEGORIES:
+        report[CATEGORIES[key]] = 0
+
     result = detect.run(
         imgsz=(1280,1280),
         conf_thres=0.5,
@@ -53,6 +58,8 @@ def detect_file_path(path):
                 CATEGORIES[values[0]]
             ]
         }
+        
+        report[CATEGORIES[values[0]]]+=1
 
         labels.append(json)
     
@@ -67,7 +74,8 @@ def detect_file_path(path):
 
     return {
         "task": task,
-        "path": result["path"].replace("\\","/")
+        "path": result["path"].replace("\\","/"),
+        "report": report
     }
 
 # def getTasksFromProject():
