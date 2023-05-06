@@ -217,7 +217,10 @@ def run(
     if update:
         strip_optimizer(weights[0])  # update model (to fix SourceChangeWarning)
 
-    return lines
+    return {
+        'lines': lines,
+        'path': save_path
+    }
 
 def parse_opt():
     parser = argparse.ArgumentParser()

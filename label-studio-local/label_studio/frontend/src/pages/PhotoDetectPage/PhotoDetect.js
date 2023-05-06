@@ -1,18 +1,23 @@
 import React from 'react';
 
-const PhotoDetectForm = ({ file, handleFileChange, handleUploadClick, error}) => (
+const PhotoDetectForm = ({ file, handleFileChange, handleUploadClick, image, error}) => (
   <div className="field field--wide">
     <input name="photo" type="file" onChange={handleFileChange} />
 
     <div>{file && `${file.name} - ${file.type}`}</div>
 
     <button onClick={handleUploadClick}>Upload</button>
+
+    <div>
+      <img src={image} />
+    </div>
   </div>
 );
 
 export const PhotoDetect = () => {
   const [file, setFile] = React.useState("");
   const [error, setError] = React.useState();
+  const [image, setImage] = React.useState("");
   
   const handleFileChange = (e) => {
     if (e.target.files) {
@@ -31,8 +36,13 @@ export const PhotoDetect = () => {
       method: 'POST',
       body: file,
     })
-      .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((res) => {
+        res.json().then(detection => {
+          console.log(detection);
+          setImage('http://localhost:5000/image?path=' + detection.path);
+        });
+      })
+      .then((data) => {})
       .catch((err) => console.error(err));
   };
 
@@ -42,6 +52,7 @@ export const PhotoDetect = () => {
         error={error}
         handleFileChange={handleFileChange}
         handleUploadClick={handleUploadClick}
+        image={image}
       />
   );
 };
