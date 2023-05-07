@@ -38,7 +38,7 @@ def save_file(file):
     image = Image.open(io.BytesIO(file))
     if(image.height > image.width):
         image = image.rotate(90)
-    image = image.resize((1280, 920), Image.ANTIALIAS)
+    image = image.resize((4000, 3000), Image.ANTIALIAS)
 
     now = datetime.now()
     path = TMP_PATH + now.strftime("%H%M%S") + ".jpg"
