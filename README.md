@@ -6,4 +6,4 @@ cd label-studio-local
 npx webpack --watch
 
 # Wheat Detector Server
-python -m flask --app wheat_detector/wheat_detector_server run --debug
+python -m flask --app ultralytics-yolov5/wheat_detector_server run --debug
