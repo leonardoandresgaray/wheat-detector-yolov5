@@ -26,7 +26,7 @@ def detect_file_path(path):
         report[CATEGORIES[key]] = 0
 
     result = detect.run(
-        imgsz=(1280,1280),
+        imgsz=(4000,3000),
         conf_thres=0.5,
         hide_labels=True, 
         weights="../wheat_detector/weights/best.pt",

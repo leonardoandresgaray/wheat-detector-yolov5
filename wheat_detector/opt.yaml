@@ -1,5 +1,5 @@
 weights: ''
-cfg: /content/wheat-detector-yolov5/ultralytics-yolov5/models/yolov5l.yaml
+cfg: /content/wheat-detector-yolov5/ultralytics-yolov5/models/yolov5s.yaml
 data: /content/wheat-detector-yolov5/ultralytics-yolov5/data/wheat001.yaml
 hyp:
   lr0: 0.01
@@ -30,9 +30,9 @@ hyp:
   mosaic: 0.0
   mixup: 0.0
   copy_paste: 0.0
-epochs: 400
+epochs: 300
 batch_size: -1
-imgsz: 1280
+imgsz: 4000
 rect: false
 resume: false
 nosave: false
