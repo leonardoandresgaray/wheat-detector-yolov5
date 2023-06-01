@@ -32,7 +32,8 @@ def detect_file_path(path):
         weights="../wheat_detector/weights/best.pt",
         source=path,
         save_txt=True,
-        nosave=False)
+        nosave=False,
+        max_det=10000)
     
     for line in result["lines"]:
         values = line.split(" ")
