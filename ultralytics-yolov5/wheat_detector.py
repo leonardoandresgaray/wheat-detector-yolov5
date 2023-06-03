@@ -4,7 +4,7 @@ from label_studio_sdk import Client
 # Define the URL where Label Studio is accessible and the API key for your user account
 LABEL_STUDIO_URL = 'http://localhost:8080'
 API_KEY = '631e560fab681593d71905198a1f284b94c8a40d'
-PROJECT = 8
+PROJECT = 9
 
 CATEGORIES = {
     "0": "bueno",

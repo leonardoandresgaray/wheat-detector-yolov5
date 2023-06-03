@@ -7,7 +7,7 @@ from label_studio_sdk import Client
 LABEL_STUDIO_URL = 'http://localhost:8080'
 # API_KEY = '631e560fab681593d71905198a1f284b94c8a40d'
 API_KEY = 'dba3aa2a85021ed9982b9e14ca3e55605da66a3b'
-PROJECT = 8
+PROJECT = 9
 ZIP_FILE_PATH = '..\\datasets\\wheat001.zip'
 EXPORT_PATH = '..\\datasets\\wheat001'
 
