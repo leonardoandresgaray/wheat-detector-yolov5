@@ -14,7 +14,7 @@ CORS(app)
 def upload_file():
     path = save_file(request.data) 
     
-    detection = detect_file_path(path)
+    detection = detect_file_path(path, True)
 
     # Remove temporal file
     if os.path.isfile(path):
@@ -23,7 +23,7 @@ def upload_file():
     return jsonify(detection)
 
 @app.route("/api/photo/detect", methods=['POST'])
-def detect_fil():
+def detect_file():
     path = save_file(request.data) 
     
     detection = detect_file_path(path)
